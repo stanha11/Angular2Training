@@ -26,6 +26,7 @@
     "esrever": "^0.2.0",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.3.0",
+    "jquery": "^3.2.1",
     "keycode": "^2.1.8",
     "lodash": "^4.17.2",
     "moment": "^2.13.0",
