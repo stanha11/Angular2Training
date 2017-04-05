@@ -3,7 +3,7 @@
  */
 
 export interface IInventoryItem {
-    guid:string;
-    name:string;
-    price:number;
+  guid:string;
+  name:string;
+  price:number;
 }

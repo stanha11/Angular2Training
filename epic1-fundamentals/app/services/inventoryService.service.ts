@@ -1,30 +1,32 @@
+import _ = require('lodash');
 import {Injectable} from "@angular/core";
 import {IInventoryItem} from "../shapes/IInventoryItem";
-
+import {BackendInventoryService} from "./backend/backendInventoryService.service";
 
 @Injectable()
-class InventoryService {
-    getItems():IInventoryItem[] {
-        let items:IInventoryItem[] = [];
-        //noinspection TypeScriptValidateTypes
-        items = [{
-            guid:'item1',
-            name: 'Bronze Earings',
-            price: 100.00
-        },{
-            guid:'item49',
-            name: 'Kardassian Broach',
-            price: 55.00
-        },{
-            guid:'item74',
-            name: 'Diamond Necklace #54',
-            price:  9.99
-        }
-        ];
-        return items;
-    }
-}
+export class InventoryService {
+  itemsByContext:{context:string,items:IInventoryItem[]}[] = [];
+  currentItem:IInventoryItem;
 
-export {
-    InventoryService
+  constructor(private backendInventoryService:BackendInventoryService) {}
+
+
+  getItems(context:string):Promise<IInventoryItem[]> {
+    let itemsForContext:{context:string,items:IInventoryItem[]} = _.find(this.itemsByContext,{context:context});
+    if (itemsForContext) {
+      return Promise.resolve(itemsForContext.items);
+    } else {
+      return this.backendInventoryService.getItems(context)
+        .then((items:IInventoryItem[])=>{
+          this.itemsByContext.push({context:context,items});
+          return items;
+        });
+    }
+  }
+
+  setCurrentItem(item:IInventoryItem) {
+    this.currentItem = item;
+    console.log('Current Item:');
+    console.log(this.currentItem);
+  }
 }
