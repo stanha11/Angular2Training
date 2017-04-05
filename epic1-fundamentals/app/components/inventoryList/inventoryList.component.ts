@@ -3,12 +3,12 @@
  */
 
 import {Component} from "@angular/core";
-import {InventoryService} from "../../services/InventoryService.service";
+import {InventoryService} from "../../services/inventoryService.service";
 import {IInventoryItem} from "../../shapes/IInventoryItem";
 
 @Component({
     selector: 'inventory-list',
-    templateUrl:'app/components/inventoryList/InventoryList.component.html'
+    templateUrl:'app/components/inventoryList/inventoryList.component.html'
 })
 export class InventoryList {
 

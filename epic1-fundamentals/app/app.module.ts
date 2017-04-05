@@ -8,8 +8,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 //import {routing} from './components/routes/[pathToRoutes].routes';
 import {AppComponent} from './app.component';
-import {InventoryService} from "./services/InventoryService.service";
-import {InventoryList} from "./components/inventoryList/InventoryList.component";
+import {InventoryService} from "./services/inventoryService.service";
+import {InventoryList} from "./components/inventoryList/inventoryList.component";
 
 @NgModule(({
   imports: [
