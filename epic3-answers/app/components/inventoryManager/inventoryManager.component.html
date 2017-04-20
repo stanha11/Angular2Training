@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="small-12 columns text-center">
+    <h2>Inventory Manager</h2>
+  </div>
+</div>
+<div *ngIf="itemEdited" class="row">
+  <div class="small-12 columns">
+    <h4>Edit Item</h4>
+    <form>
+      <div class="row"><div class="small-12 columns"><label>GUID:<input type="text" readonly [value]="itemEdited.guid"></label></div></div>
+      <div class="row"><div class="small-12 columns"><label>Name:<input #itemEditName class="itemEditedName" type="text"  [value]="itemEdited.name"></label></div></div>
+      <div class="row"><div class="small-12 columns"><label>Price:<input type="text"  [value]="itemEdited.price"></label></div></div>
+      <a (click)="clearSelection()">Clear Selection</a>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns text-center">
+    <a (click)="setContext(jewelryRackListName)">Select {{jewelryRackListName}}</a>
+  </div>
+  <div class="small-12 columns text-center">
+    <a (click)="setContext(allListName)">Select {{allListName}}</a>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns text-center">
+    <inventory-list [context]="selectedContext" (selectionChange)="editItem($event)"></inventory-list>
+  </div>
+</div>
