@@ -25,6 +25,13 @@
       </tr>
     </tbody>
   </table>
+<div class="row">
+    <div class="small-12 columns">
+      <form>
+        <label>Search: &nbsp;<input type="text" value="" (change)="findItem()"></label>
+      </form>
+    </div>
+  </div>
   <div  *ngIf="currentItem">
   <div class="row">
       <div class="small-12 columns text-center">
@@ -41,7 +48,7 @@
       <tbody>
         <tr>
           <td>{{currentItem.name}}</td>
-          <td>{{currentItem.price}}</td>
+          <td><span [style.display]="currentItem.price > 100.0 ? 'none':'inherit'">{{currentItem.price}}</span></td>
         </tr>
       </tbody>
     </table>

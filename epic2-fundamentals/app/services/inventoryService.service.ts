@@ -21,10 +21,10 @@ export class InventoryService {
       return Promise.resolve(itemsForContext.items);
     } else {
       return this.backendInventoryService.getItems(context)
-        .then((items:IInventoryItem[])=>{
-          this.itemsByContext.push({context:context,items});
-          return items;
-        });
+          .then((items:IInventoryItem[])=>{
+            this.itemsByContext.push({context:context,items});
+            return items;
+          });
     }
   }
 
