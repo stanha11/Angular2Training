@@ -9,7 +9,7 @@ import {jewelryRackList, allList, saleRackList} from "../../util/constants.vario
     selector:'inventory-manager',
     templateUrl: 'app/components/inventoryManager/inventoryManager.component.html'
 }) export class InventoryManager {
-    oldSelectedContext:string;
+    prevSelectedContext:string;
     selectedContext:string;
     sortOrder:string;
     jewelryRackListName:string = jewelryRackList;
@@ -19,7 +19,7 @@ import {jewelryRackList, allList, saleRackList} from "../../util/constants.vario
     constructor() {}
 
     setContext(context:string) {
-        this.oldSelectedContext = this.selectedContext;
+        this.prevSelectedContext = this.selectedContext;
         this.selectedContext = context;
     }
 
