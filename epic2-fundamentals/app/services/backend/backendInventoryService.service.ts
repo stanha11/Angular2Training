@@ -5,6 +5,9 @@
 import {Injectable} from "@angular/core";
 import {IInventoryItem} from "../../shapes/IInventoryItem";
 import {jewelryRackList} from "../../util/constants.various";
+import {saleRackList} from "../../util/constants.various";
+
+
 
 @Injectable()
 export class BackendInventoryService {
@@ -28,7 +31,26 @@ export class BackendInventoryService {
           }]);
         });
       });
-    } else {
+    } else if (context === saleRackList ) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve([{
+            guid: 'item6guid',
+            name: 'Garden Hose',
+            price: 20.0
+          }, {
+            guid: 'item7guid',
+            name: 'Extension Cord',
+            price: 10.0
+          }, {
+            guid: 'item8guid',
+            name: 'Shovel',
+            price: 25.0
+          }]);
+        });
+      });
+    }
+    else {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve([{

@@ -6,7 +6,7 @@ import _ = require('lodash');
 import {Component, OnInit, ElementRef, AfterViewInit, OnDestroy, Input} from "@angular/core";
 import {InventoryService} from "../../services/inventoryService.service";
 import {IInventoryItem} from "../../shapes/IInventoryItem";
-import {allList, jewelryRackList} from "../../util/constants.various";
+import {allList, jewelryRackList, saleRackList} from "../../util/constants.various";
 
 @Component({
   selector:'inventory-list',

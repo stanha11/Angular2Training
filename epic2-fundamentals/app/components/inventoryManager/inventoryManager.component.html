@@ -10,9 +10,16 @@
     <div class="small-12 columns text-center">
         <a (click)="setContext(allListName)">Select {{allListName}}</a>
     </div>
+    <div class="small-12 columns text-center">
+        <a (click)="setContext(saleRackListName)">Select {{saleRackListName}}</a>
+    </div>
 </div>
 <div class="row">
     <div class="small-12 columns text-center">
         <inventory-list [context]="selectedContext"></inventory-list>
     </div>
 </div>
+<div class="row">
+    <div class="small-12 columns text-center">
+        <inventory-list [context]="oldSelectedContext"></inventory-list>
+    </div>
