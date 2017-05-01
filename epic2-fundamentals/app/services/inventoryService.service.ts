@@ -18,7 +18,8 @@ export class InventoryService {
   getItems(context:string):Promise<IInventoryItem[]> {
     let itemsForContext:{context:string,items:IInventoryItem[]} = _.find(this.itemsByContext,{context:context});
     if (itemsForContext) {
-      return Promise.resolve(itemsForContext.items);
+      let sortedItems:IInventoryItem[] = _.sortBy(itemsForContext.items,['name']);
+      return Promise.resolve(sortedItems);
     } else {
       return this.backendInventoryService.getItems(context)
           .then((items:IInventoryItem[])=>{
