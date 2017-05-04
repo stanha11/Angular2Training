@@ -3,7 +3,7 @@
  */
 
 import {Component} from "@angular/core";
-import {jewelryRackList, allList, saleRackList} from "../../util/constants.various";
+import {jewelryRackList, allList, saleRackList, nameSort, priceSort} from "../../util/constants.various";
 
 @Component({
     selector:'inventory-manager',
@@ -11,10 +11,14 @@ import {jewelryRackList, allList, saleRackList} from "../../util/constants.vario
 }) export class InventoryManager {
     prevSelectedContext:string;
     selectedContext:string;
-    sortOrder:string;
+    sortColumn:string;
+
+
     jewelryRackListName:string = jewelryRackList;
     allListName:string = allList;
     saleRackListName:string = saleRackList;
+    sortColumnName:string = nameSort;
+    sortColumnPrice:string = priceSort;
 
     constructor() {}
 
@@ -23,8 +27,8 @@ import {jewelryRackList, allList, saleRackList} from "../../util/constants.vario
         this.selectedContext = context;
     }
 
-    setSortOrder(sortOrder:string) {
-        this.sortOrder = sortOrder;
+    setSortColumn(sortColumn:string) {
+        this.sortColumn = sortColumn;
     }
 
 }

@@ -6,7 +6,7 @@ import _ = require('lodash');
 import {Component, OnInit, ElementRef, AfterViewInit, OnDestroy, Input} from "@angular/core";
 import {InventoryService} from "../../services/inventoryService.service";
 import {IInventoryItem} from "../../shapes/IInventoryItem";
-import {allList, jewelryRackList, saleRackList} from "../../util/constants.various";
+import {allList, jewelryRackList, saleRackList, nameSort, priceSort} from "../../util/constants.various";
 
 @Component({
   selector:'inventory-list',
@@ -30,6 +30,20 @@ export class InventoryList implements OnInit, OnDestroy, AfterViewInit {
     return this._context;
   }
 
+  private _sortColumn:string = nameSort;
+  @Input() set sortColumn(sortColumn:string) {
+    if(this._sortColumn !== sortColumn) {
+      if(sortColumn) {
+        this._sortColumn = sortColumn;
+      }
+    }
+  }
+
+  get sortColumn():string {
+    return this._sortColumn;
+  }
+
+
   items:IInventoryItem[] = [];
   currentItem:IInventoryItem;
   input:HTMLInputElement;
@@ -41,9 +55,9 @@ export class InventoryList implements OnInit, OnDestroy, AfterViewInit {
   }
 
   updateInventoryListItems() {
-    this.inventoryService.getItems(this.context)
+    this.inventoryService.getItems(this._context)
         .then((items: IInventoryItem[]) => {
-          this.items = items;
+          this.items = _.sortBy(items,[this._sortColumn]);
         });
   }
 

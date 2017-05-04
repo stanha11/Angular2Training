@@ -5,7 +5,9 @@
 const jewelryRackList:string = 'Jewelry Rack';
 const allList:string = 'All Racks';
 const saleRackList:string = 'Sale Rack';
+const nameSort:string = 'name';
+const priceSort:string = 'price';
 
 export {
-    jewelryRackList,allList,saleRackList
+    jewelryRackList,allList,saleRackList,nameSort,priceSort
 }

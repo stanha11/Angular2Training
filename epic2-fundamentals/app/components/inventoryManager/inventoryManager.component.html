@@ -13,6 +13,12 @@
     <div class="small-12 columns text-center">
         <a (click)="setContext(saleRackListName)">Select {{saleRackListName}}</a>
     </div>
+    <div class="small-12 columns text-center">
+        <a (click)="setSortColumn(nameSort)">Sort By {{sortColumnName}}</a>
+    </div>
+    <div class="small-12 columns text-center">
+        <a (click)="setSortColumn(priceSort)">Sort By {{sortColumnPrice}}</a>
+    </div>
 </div>
 <div class="row">
     <div class="small-12 columns text-center">
@@ -23,3 +29,4 @@
     <div class="small-12 columns text-center">
         <inventory-list [context]="prevSelectedContext"></inventory-list>
     </div>
+</div>
