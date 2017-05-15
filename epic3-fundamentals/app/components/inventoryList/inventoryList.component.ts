@@ -3,7 +3,7 @@
  */
 
 import _ = require('lodash');
-import {Component, OnInit, ElementRef, AfterViewInit, OnDestroy, Input} from "@angular/core";
+import {Component, OnInit, ElementRef, AfterViewInit, OnDestroy, Input, Output, EventEmitter} from "@angular/core";
 import {InventoryService} from "../../services/inventoryService.service";
 import {IInventoryItem} from "../../shapes/IInventoryItem";
 import {allList, jewelryRackList} from "../../util/constants.various";
@@ -30,6 +30,7 @@ export class InventoryList implements OnInit, OnDestroy, AfterViewInit {
     return this._context;
   }
 
+  @Output() selectionChange:EventEmitter<IInventoryItem> = new EventEmitter();
   items:IInventoryItem[] = [];
   currentItem:IInventoryItem;
   input:HTMLInputElement;
@@ -65,6 +66,7 @@ export class InventoryList implements OnInit, OnDestroy, AfterViewInit {
   setCurrentItem(item:IInventoryItem) {
     this.currentItem = item;
     this.inventoryService.setCurrentItem(this.currentItem);
+	this.selectionChange.emit(this.currentItem);
   }
 
   findItem() {
@@ -75,5 +77,8 @@ export class InventoryList implements OnInit, OnDestroy, AfterViewInit {
         return false; // Break out of the find loop.
       }
     });
+  }
+  clearCurrentItem() {
+    this.setCurrentItem(undefined);
   }
 }

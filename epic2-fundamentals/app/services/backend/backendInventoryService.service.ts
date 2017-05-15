@@ -35,17 +35,17 @@ export class BackendInventoryService {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve([{
-            guid: 'item6guid',
-            name: 'Garden Hose',
-            price: 20.0
+            guid: 'item8guid',
+            name: 'Shovel',
+            price: 25.0
           }, {
             guid: 'item7guid',
             name: 'Extension Cord',
             price: 10.0
           }, {
-            guid: 'item8guid',
-            name: 'Shovel',
-            price: 25.0
+            guid: 'item6guid',
+            name: 'Garden Hose',
+            price: 20.0
           }]);
         });
       });

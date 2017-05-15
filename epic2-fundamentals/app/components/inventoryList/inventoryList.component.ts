@@ -30,17 +30,17 @@ export class InventoryList implements OnInit, OnDestroy, AfterViewInit {
     return this._context;
   }
 
-  private _sortColumn:string = nameSort;
-  @Input() set sortColumn(sortColumn:string) {
-    if(this._sortColumn !== sortColumn) {
-      if(sortColumn) {
-        this._sortColumn = sortColumn;
+  private _sort:string = nameSort;
+  @Input() set sort(sort:string) {
+    if(this._sort !== sort) {
+      if(sort) {
+        this._sort = sort;
       }
     }
   }
 
-  get sortColumn():string {
-    return this._sortColumn;
+  get sort():string {
+    return this._sort;
   }
 
 
@@ -57,7 +57,7 @@ export class InventoryList implements OnInit, OnDestroy, AfterViewInit {
   updateInventoryListItems() {
     this.inventoryService.getItems(this._context)
         .then((items: IInventoryItem[]) => {
-          this.items = _.sortBy(items,[this._sortColumn]);
+          this.items = _.sortBy(items,[this._sort]);
         });
   }
 

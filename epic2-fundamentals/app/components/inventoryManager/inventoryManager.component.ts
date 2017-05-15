@@ -11,7 +11,7 @@ import {jewelryRackList, allList, saleRackList, nameSort, priceSort} from "../..
 }) export class InventoryManager {
     prevSelectedContext:string;
     selectedContext:string;
-    sortColumn:string;
+    sort:string;
 
 
     jewelryRackListName:string = jewelryRackList;
@@ -27,8 +27,8 @@ import {jewelryRackList, allList, saleRackList, nameSort, priceSort} from "../..
         this.selectedContext = context;
     }
 
-    setSortColumn(sortColumn:string) {
-        this.sortColumn = sortColumn;
+    setSort(sort:string) {
+        this.sort = sort;
     }
 
 }
